@@ -15,7 +15,7 @@ namespace UI {
 	void ImageWithText::draw(sf::RenderTarget& target, sf::RenderStates states) const {
 		sf::FloatRect _scaledCanvas = Scale(canvas);
 		drawImage(target, states, _scaledCanvas, texture);
-		drawText(target, states, _scaledCanvas, text);
+		drawText(target, states, _scaledCanvas, text, textColor);
 	}
 
 	ImageWithText::~ImageWithText() {}

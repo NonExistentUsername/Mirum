@@ -21,13 +21,17 @@
 namespace UI {
 	class ButtonList : public EmptyButton {
 	protected:
-		ImageWithText image;
+		sf::IntRect canvas;
+		std::shared_ptr<sf::Texture> texture;
+		std::string text;
+		sf::Color textColor;
 
 		std::vector<std::string> strings;
-
 		bool enabled = false;
 
-		ButtonList(std::unique_ptr<Button> _button);
+		virtual void buttonReleased(const sf::Event& event);
+
+		ButtonList();
 	public:
 	    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 

@@ -6,25 +6,42 @@
  */
 
 #include "../../Includes/UI/Objects/ButtonList.hpp"
+#include "../../Includes/UI/Functions/Drawing.hpp"
 
 namespace UI {
-	ButtonList::ButtonList(std::unique_ptr<Button> _button) {}
+	ButtonList::ButtonList() {}
+
+	void ButtonList::buttonReleased(const sf::Event& event) {
+		if(enabled) {
+			enabled = false;
+
+			sf::FloatRect _scaledCanvas = Scale(canvas);
+			for(size_t i = 0; i < strings.size(); ++i) {
+				_scaledCanvas.top += _scaledCanvas.height;
+				if(_scaledCanvas.contains(event.mouseButton.x, event.mouseButton.y))
+					text = strings[i];
+			}
+
+		} else {
+			if(Scale(canvas).contains(event.mouseButton.x, event.mouseButton.y))
+				enabled = true;
+		}
+	}
 
 	void ButtonList::draw(sf::RenderTarget& target, sf::RenderStates states) const {
-//		target.draw(*button.get());
-//
-//		if(enabled) {
-//			Button copy_button = *button.get();
-//			sf::IntRect _canvas = button.get()->getCanvas();
-//			int height = button.get()->getCanvas().height;
-//			for(const auto& str : strings) {
-//				_canvas.top += height;
-//				copy_button.setCanvas(_canvas);
-//				copy_button.setText(str);
-//
-//				target.draw(copy_button, states);
-//			}
-//		}
+		std::cerr << "draw ButtonList with text = " << text << std::endl;
+
+		sf::FloatRect _scaledCanvas = Scale(canvas);
+		drawImage(target, states, _scaledCanvas, texture);
+		drawText(target, states, _scaledCanvas, text, textColor);
+
+		if(enabled) {
+			for(const auto& str : strings) {
+				_scaledCanvas.top += _scaledCanvas.height;
+				drawImage(target, states, _scaledCanvas, texture);
+				drawText(target, states, _scaledCanvas, str, textColor);
+			}
+		}
 	}
 
 	ButtonList::~ButtonList() {}

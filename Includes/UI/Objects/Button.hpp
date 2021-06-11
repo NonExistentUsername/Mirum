@@ -21,6 +21,7 @@ namespace UI {
 		sf::IntRect canvas;
 		std::shared_ptr<sf::Texture> texture;
 		std::string text;
+		sf::Color textColor = sf::Color(255, 255, 255);
 
 		virtual void pressed(const sf::Event& event);
 		virtual void unPressed(const sf::Event& event);

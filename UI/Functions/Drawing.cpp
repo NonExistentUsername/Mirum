@@ -26,13 +26,13 @@ void drawImage(sf::RenderTarget& target, sf::RenderStates states, const sf::Floa
 	}
 }
 
-void drawText(sf::RenderTarget& target, sf::RenderStates states, const sf::FloatRect& _scaledCanvas, const std::string& text) {
+void drawText(sf::RenderTarget& target, sf::RenderStates states, const sf::FloatRect& _scaledCanvas, const std::string& text, const sf::Color& _color) {
 	if(!text.empty()) {
 		sf::Text _text;
 		_text.setFont(Settings::textFont);
 		_text.setCharacterSize(ScaleSize(Settings::fontSize));
 		_text.setString(text);
-		_text.setFillColor(sf::Color(255, 255, 255));
+		_text.setFillColor(_color);
 
 		sf::Vector2f _canvasCenter = Center(_scaledCanvas);
 		_text.setPosition(sf::Vector2f(

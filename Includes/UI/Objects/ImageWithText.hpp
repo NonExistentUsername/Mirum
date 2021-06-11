@@ -21,6 +21,7 @@ namespace UI {
 		sf::IntRect canvas;
 		std::shared_ptr<sf::Texture> texture;
 		std::string text;
+		sf::Color textColor;
 	public:
 		ImageWithText();
 
