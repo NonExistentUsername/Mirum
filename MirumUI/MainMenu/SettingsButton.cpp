@@ -40,6 +40,4 @@ MainMenu::SettingsButton::SettingsButton() {
 	text = "Settings";
 }
 
-MainMenu::SettingsButton::~SettingsButton() {
-	std::cerr << "MainMenu::SettingsButton deleted" << std::endl;
-}
+MainMenu::SettingsButton::~SettingsButton() {}

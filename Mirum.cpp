@@ -15,6 +15,7 @@
 
 #include <set>
 #include <iostream>
+#include <chrono>
 
 #include "Includes/General/Settings.hpp"
 
@@ -25,12 +26,18 @@
 #include "Includes/General/Defines.hpp"
 #include "Includes/General/RenderFrame.hpp"
 #include "Includes/General/EventManager.hpp"
+#include "Includes/UI/Functions/Drawing.hpp"
+#include "Includes/UI/Functions/Scale.hpp"
 
 #ifdef DEBUG
 #include "Includes/Tools/Tests.hpp"
 #endif
 
 #include "Includes/UI/Objects/Menu.hpp"
+
+
+std::chrono::steady_clock::time_point start;
+sf::Text _fps;
 
 void renderLoop() {
     while(window.isOpen()) {
@@ -43,11 +50,28 @@ void renderLoop() {
             EventManager::processEvent(event);
         }
 
+        start = std::chrono::steady_clock::now();
+
         renderFrame(window);
+
+        auto dur = std::chrono::steady_clock::now() - start;
+    	sf::Text _text;
+		_text.setFont(Settings::textFont);
+		_text.setCharacterSize(ScaleSize(Settings::fontSize));
+		_text.setString(std::to_string(60000000./std::chrono::duration_cast<std::chrono::microseconds>(dur).count()));
+		_text.setFillColor(sf::Color::Black);
+
+		sf::Vector2f _canvasCenter = Center(sf::FloatRect(0, 0, 200, 50));
+		_text.setPosition(sf::Vector2f(
+    				_canvasCenter.x - _text.getLocalBounds().width / 2.,
+    				_canvasCenter.y - ScaleSize(Settings::fontSize) / 2.));
+
+		window.draw(_text);
 
         window.display();
     }
 }
+
 
 int main() {
 #ifdef DEBUG
@@ -55,6 +79,7 @@ int main() {
 #endif
 
 	init();
+	window.setFramerateLimit(60);
 	renderLoop();
 
 	return EXIT_SUCCESS;

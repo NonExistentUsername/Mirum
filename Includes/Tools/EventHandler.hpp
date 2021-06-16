@@ -10,6 +10,7 @@
 #include <queue>
 #include <shared_mutex>
 #include <cassert>
+#include <mutex>
 
 #include <iostream>
 
@@ -125,11 +126,9 @@ class TEvent {
         }
 
         ~TEvent() {
-        	std::cerr << "Tevent deleting.." << std::endl;
             for(TEventHandler* oneHandler : m_handlers)
                 delete oneHandler;
             m_handlers.clear();
-        	std::cerr << "Tevent deleting DONE" << std::endl;
         }
 };
 

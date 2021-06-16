@@ -9,6 +9,8 @@
 #include "../Includes/General/Settings.hpp"
 #include <iostream>
 
+#include "../Includes/General/Init.hpp"
+
 sf::ContextSettings Settings::contextSettings;
 
 uint32_t Settings::windowStyle = sf::Style::Titlebar | sf::Style::Close;
@@ -53,6 +55,13 @@ const double Settings::Kx() {
 
 const double Settings::Ky() {
 	return ky;
+}
+
+void Settings::changeWindowSize(sf::Vector2<uint16_t> newWindowSize) {
+	windowSize = newWindowSize;
+    kx = (double)windowSize.x / (double)defaultWindowSize.x;
+    ky = (double)windowSize.y / (double)defaultWindowSize.y;
+	reloadWindow();
 }
 
 Settings::~Settings() {}

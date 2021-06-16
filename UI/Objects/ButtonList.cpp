@@ -16,10 +16,11 @@ namespace UI {
 			enabled = false;
 
 			sf::FloatRect _scaledCanvas = Scale(canvas);
-			for(size_t i = 0; i < strings.size(); ++i) {
+			for(size_t id = 0; id < strings.size(); ++id) {
 				_scaledCanvas.top += _scaledCanvas.height;
-				if(_scaledCanvas.contains(event.mouseButton.x, event.mouseButton.y))
-					text = strings[i];
+				if(_scaledCanvas.contains(event.mouseButton.x, event.mouseButton.y)) {
+					processChange(id);
+				}
 			}
 
 		} else {
@@ -28,9 +29,11 @@ namespace UI {
 		}
 	}
 
-	void ButtonList::draw(sf::RenderTarget& target, sf::RenderStates states) const {
-		std::cerr << "draw ButtonList with text = " << text << std::endl;
+	void ButtonList::processChange(size_t id) {
+		text = strings[id];
+	}
 
+	void ButtonList::draw(sf::RenderTarget& target, sf::RenderStates states) const {
 		sf::FloatRect _scaledCanvas = Scale(canvas);
 		drawImage(target, states, _scaledCanvas, texture);
 		drawText(target, states, _scaledCanvas, text, textColor);

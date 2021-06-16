@@ -33,5 +33,7 @@ public:
     static const double Kx();
     static const double Ky();
 
+    static void changeWindowSize(sf::Vector2<uint16_t> newWindowSize);
+
     ~Settings();
 };

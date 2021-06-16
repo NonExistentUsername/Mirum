@@ -11,6 +11,7 @@
 TEvent<const sf::Event&> EventManager::buttonReleased;
 TEvent<const sf::Event&> EventManager::buttonPressed;
 TEvent<const sf::Event&> EventManager::buttonUnPressed;
+TEvent<> EventManager::frameEvent;
 
 void EventManager::processEvent(const sf::Event& event) {
 	switch(event.type) {
@@ -24,4 +25,6 @@ void EventManager::processEvent(const sf::Event& event) {
 	default:
 	break;
 	}
+
+	frameEvent();
 }

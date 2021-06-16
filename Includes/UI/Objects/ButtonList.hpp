@@ -31,6 +31,8 @@ namespace UI {
 
 		virtual void buttonReleased(const sf::Event& event);
 
+		virtual void processChange(size_t id);
+
 		ButtonList();
 	public:
 	    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;

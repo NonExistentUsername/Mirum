@@ -26,17 +26,10 @@ private:
 	};
 
 	class ChangeResolutionButtonList : public UI::ButtonList {
-
+	private:
+		void processChange(size_t id) override;
 	public:
-		ChangeResolutionButtonList() {
-			canvas.height = 50;
-			canvas.width = 100;
-			canvas.top = 200;
-			canvas.left = 1920/2 - 50;
-			text = "test";
-
-			strings = {"1", "2", "3", "ttt"};
-		};
+		ChangeResolutionButtonList();
 	};
 
 

@@ -39,8 +39,20 @@ private:
 		~SettingsButton();
 	};
 
+	class SingleplayerButton : public UI::Button {
+	private:
+		void pressed(const sf::Event& event) override;
+		void unPressed(const sf::Event& event) override;
+		void released(const sf::Event& event) override;
+	public:
+		SingleplayerButton();
+
+		~SingleplayerButton();
+	};
+
 	ExitButton exit;
 	SettingsButton settingsMenu;
+	SingleplayerButton play;
 public:
 	MainMenu();
 

@@ -17,6 +17,7 @@ public:
 	static TEvent<const sf::Event&> buttonReleased;
 	static TEvent<const sf::Event&> buttonPressed;
 	static TEvent<const sf::Event&> buttonUnPressed;
+	static TEvent<> frameEvent;
 
 	static void processEvent(const sf::Event& event);
 };

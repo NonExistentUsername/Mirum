@@ -14,6 +14,7 @@
 #include <memory>
 
 sf::RenderWindow createWindow();
+void reloadWindow();
 
 //std::unique_ptr<UI::MenuGraph> loadMenus();
 
