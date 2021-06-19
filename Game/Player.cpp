@@ -7,22 +7,30 @@
 
 #include "../Includes/Game/Player.hpp"
 #include "../Includes/General/EventManager.hpp"
+#include "../Includes/General/Settings/Game.hpp"
 #include "../Includes/UI/Functions/Scale.hpp"
 
 namespace Game {
 	void Player::processMove() {
+		static std::chrono::steady_clock::time_point start = std::chrono::steady_clock::now();
+
+		auto duration = std::chrono::steady_clock::now() - start;
+
+
 		if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-			position.x--;
-		} else
-		if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-			position.x++;
-		} else
-		if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-			position.y++;
-		} else
-		if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-			position.y--;
+			position.x -= Settings::Game::playerSpeed * std::chrono::duration_cast<std::chrono::microseconds>(duration).count()/1000000.;
 		}
+		if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+			position.x += Settings::Game::playerSpeed * std::chrono::duration_cast<std::chrono::microseconds>(duration).count()/1000000.;
+		}
+		if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
+			position.y -= Settings::Game::playerSpeed * std::chrono::duration_cast<std::chrono::microseconds>(duration).count()/1000000.;
+		}
+		if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
+			position.y += Settings::Game::playerSpeed * std::chrono::duration_cast<std::chrono::microseconds>(duration).count()/1000000.;
+		}
+
+		start = std::chrono::steady_clock::now();
 	}
 
 	Player::Player(): position(1920/2, 1080/2) {
@@ -32,7 +40,13 @@ namespace Game {
 	void Player::draw(sf::RenderTarget& target, sf::RenderStates states) const {
 
 		sf::CircleShape image;
-		image.setPosition(Scale(position));
+
+		float _scaledSize = ScaleSize(30);
+		sf::Vector2f _scaledPos = Scale(position);
+		_scaledPos.x -= _scaledSize;
+		_scaledPos.y -= _scaledSize;
+
+		image.setPosition(_scaledPos);
 		image.setFillColor(sf::Color::Black);
 		image.setRadius(ScaleSize(30));
 

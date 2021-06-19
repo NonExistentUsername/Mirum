@@ -17,9 +17,19 @@ namespace Game {
 	class Processor : public sf::Drawable {
 	private:
 		Player user;
+
+		Map map;
+
 	public:
+		Processor() {
+
+		}
+
 		void draw(sf::RenderTarget& target, sf::RenderStates states) const override {
 			target.draw(user, states);
+			target.draw(map, states);
+
+//			drawLines(target, states);
 		}
 	};
 }

@@ -11,3 +11,4 @@
 #include "Objects/EmptyButton.hpp"
 #include "Objects/ListButton.hpp"
 #include "Objects/Menu.hpp"
+#include "Objects/FPScounter.hpp"

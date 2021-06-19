@@ -9,7 +9,7 @@
 
 void MainMenu::SettingsButton::pressed(const sf::Event& event) {
 	if(canvas.contains(UnScale(sf::Vector2i(event.mouseButton.x, event.mouseButton.y)))) {
-		texture = TexturesManager::ButtonPressed;
+//		texture = TexturesManager::ButtonPressed;
 		canvas.height -= 4;
 		canvas.top += 4;
 	}
@@ -17,7 +17,7 @@ void MainMenu::SettingsButton::pressed(const sf::Event& event) {
 
 void MainMenu::SettingsButton::unPressed(const sf::Event& event) {
 	if(texture.get() == TexturesManager::ButtonPressed.get()) {
-		texture = TexturesManager::Button;
+//		texture = TexturesManager::Button;
 		canvas.height += 4;
 		canvas.top -= 4;
 	}

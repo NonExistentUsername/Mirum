@@ -24,7 +24,7 @@ public:
 	}
 
 	static void changeResolutionById(size_t id) {
-		Settings::changeWindowSize(sf::Vector2<uint16_t>(resolutions[id].first, resolutions[id].second));
+		Settings::User::changeWindowSize(sf::Vector2<uint16_t>(resolutions[id].first, resolutions[id].second));
 	}
 };
 
@@ -41,7 +41,7 @@ SettingsMenu::ChangeResolutionButtonList::ChangeResolutionButtonList() {
 	canvas.width = 100;
 	canvas.top = 200;
 	canvas.left = 1920/2 - 50;
-	text = std::to_string(Settings::getWindowSize().x) + 'x' + std::to_string(Settings::getWindowSize().y);
+	text = std::to_string(Settings::User::getWindowSize().x) + 'x' + std::to_string(Settings::User::getWindowSize().y);
 
 	strings = ResolutionsManager::buildStrings();
 }

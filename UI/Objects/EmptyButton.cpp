@@ -6,7 +6,7 @@
  */
 
 #include "../../Includes/UI/Objects/EmptyButton.hpp"
-#include "../../Includes/General/Settings.hpp"
+#include "../../Includes/General/Settings/User.hpp"
 #include "../../Includes/General/EventManager.hpp"
 
 #include <iostream>

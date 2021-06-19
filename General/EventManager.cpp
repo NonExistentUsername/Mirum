@@ -25,6 +25,4 @@ void EventManager::processEvent(const sf::Event& event) {
 	default:
 	break;
 	}
-
-	frameEvent();
 }

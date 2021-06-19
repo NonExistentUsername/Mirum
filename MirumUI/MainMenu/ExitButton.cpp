@@ -37,7 +37,6 @@ void MainMenu::ExitButton::unPressed(const sf::Event& event) {
 
 void MainMenu::ExitButton::released(const sf::Event& event) {
 	if(canvas.contains(UnScale(sf::Vector2i(event.mouseButton.x, event.mouseButton.y)))) {
-		std::cerr << "Exiting.." << std::endl;
 		std::exit(EXIT_SUCCESS);
 	}
 }

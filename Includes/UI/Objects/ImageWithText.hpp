@@ -17,7 +17,7 @@
 
 namespace UI {
 	class ImageWithText : public sf::Drawable {
-	private:
+	protected:
 		sf::IntRect canvas;
 		std::shared_ptr<sf::Texture> texture;
 		std::string text;

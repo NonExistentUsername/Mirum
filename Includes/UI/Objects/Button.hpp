@@ -20,6 +20,7 @@ namespace UI {
 	protected:
 		sf::IntRect canvas;
 		std::shared_ptr<sf::Texture> texture;
+		sf::Sprite sprite;
 		std::string text;
 		sf::Color textColor = sf::Color(255, 255, 255);
 

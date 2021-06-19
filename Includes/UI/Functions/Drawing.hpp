@@ -13,3 +13,5 @@
 void drawImage(sf::RenderTarget& target, sf::RenderStates states, const sf::FloatRect& _scaledCanvas, const std::shared_ptr<sf::Texture> texture);
 
 void drawText(sf::RenderTarget& target, sf::RenderStates states, const sf::FloatRect& _scaledCanvas, const std::string& text, const sf::Color& _color);
+
+void drawPoint(sf::RenderTarget& target, sf::RenderStates states, sf::Vector2f _scaledPosition, const float _scaledSize, const sf::Color& _color);

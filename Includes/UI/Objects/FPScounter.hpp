@@ -1,9 +1,10 @@
 /*
- * Image.hpp
+ * FPScounter.hpp
  *
- *  Created on: 11 θών. 2021 γ.
+ *  Created on: 19 θών. 2021 γ.
  *      Author: mayor
  */
+
 #pragma once
 
 #include <SFML/Graphics.hpp>
@@ -15,15 +16,16 @@
 #include <string>
 
 namespace UI {
-	class Image : public sf::Drawable {
+	class FPS : public sf::Drawable {
 	protected:
-		sf::IntRect canvas;
-		std::shared_ptr<sf::Texture> texture;
+		sf::IntRect canvas{0, 0, 250, 50};
+		std::chrono::steady_clock::time_point _start;
 	public:
-		Image();
+		FPS();
 
+		void start();
 	    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
-		~Image();
+		~FPS();
 	};
 }
