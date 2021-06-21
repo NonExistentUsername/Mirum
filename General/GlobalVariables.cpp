@@ -10,3 +10,5 @@
 #include "../Includes/General/Init.hpp"
 
 sf::RenderWindow window = createWindow();
+
+const float EPS = 1e-2;

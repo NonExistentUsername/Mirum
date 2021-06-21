@@ -25,7 +25,7 @@ namespace Game {
 	protected:
 		std::vector<sf::Vector2f> points;
 
-		std::vector<Line<float>> lines;
+		std::vector<Segmentf> segments;
 
 		friend class Processor;
 	public:
@@ -36,15 +36,23 @@ namespace Game {
 			points.push_back({1920, 1080});
 
 
-			lines.push_back(Segmentf(0, 0, 1920, 0));
-			lines.push_back(Segmentf(1920, 0, 1920, 1080));
-			lines.push_back(Segmentf(1920, 1080, 0, 1080));
-			lines.push_back(Segmentf(0, 1080, 0, 0));
+			segments.push_back(Segmentf(0, 0, 1920, 0)); //0
+			segments.push_back(Segmentf(1920, 0, 1920, 1080));
+			segments.push_back(Segmentf(1920, 1080, 0, 1080)); // 2
+			segments.push_back(Segmentf(0, 1080, 0, 0)); //3
+			segments.push_back(Segmentf{100, 100, 150, 300}); //4
+			segments.push_back(Segmentf{300, 100, 200, 800}); //5
+			segments.push_back(Segmentf{900, 900, 700, 1000});
 		}
 
 		void draw(sf::RenderTarget& target, sf::RenderStates states) const override {
 			for(const sf::Vector2f& pos : points) {
 				drawPoint(target, states, Scale(pos), ScaleSize(20), sf::Color::Red);
+			}
+
+			for(const Segment<float>& segment : segments) {
+				drawLine(target, states, Scale(sf::Vector2f(segment.start.x, segment.start.y)),
+										 Scale(sf::Vector2f(segment.end.x, segment.end.y)), sf::Color::Magenta);
 			}
 		}
 	};

@@ -19,6 +19,8 @@ namespace Geometry{
 		T direction;
 //		new_point = point + len * k;
 //
+		Ray(Point _start, T _direction): start(_start), direction(_direction) {}
+
 
 	};
 

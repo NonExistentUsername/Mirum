@@ -12,6 +12,7 @@
 #include <SFML/Main.hpp>
 #include <memory>
 #include <cstdlib>
+#include <iomanip>
 
 #include <set>
 #include <iostream>
@@ -66,6 +67,9 @@ int main() {
 #ifdef DEBUG
 	Tests::All();
 #endif
+
+	std::cerr << std::fixed;
+	std::cerr << std::setprecision(5);
 
 	init();
 	window.setFramerateLimit(60);

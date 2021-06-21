@@ -15,11 +15,12 @@ namespace Geometry {
 	struct Vector2 {
 		T x, y;
 
+		Vector2() {}
 		Vector2(T _x, T _y): x(std::move(_x)), y(std::move(_y)) {}
 //		Vector2(T&& _x, T&& _y): x(std::move(_x)), y(std::move(_y)) {}
 		Vector2(const Vector2<T>& other): x(other.x), y(other.y) {}
 
-		Vector2<T>& operator=(Vector2<T>&& other) {
+		Vector2<T>& operator=(Vector2<T> other) {
 			x = std::move(other.x);
 			y = std::move(other.y);
 			return *this;

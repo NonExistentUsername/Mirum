@@ -7,26 +7,27 @@
 
 #pragma once
 
-#include "Point.hpp"
+#include "Vector2.hpp"
 #include "Segment.hpp"
 #include <stdint.h>
 
 namespace Geometry {
-	enum LINE_INTERSECT_TYPES {
-		PARALLEL,
-		POINT,
-		INFINITUDE,
-	};
+//	enum LINE_INTERSECT_TYPES {
+//		PARALLEL,
+//		POINT,
+//		INFINITUDE,
+//	};
 
 	template<class T>
 	struct Line {
 //		y = k * x + b
+		using Point = Vector2<T>;
+
 		T k, b;
 
-
 		struct lines_intersection {
-			LINE_INTERSECT_TYPES answer;
-			Point<T> point;
+			INTERSECT_TYPES answer;
+			Vector2<T> point;
 		};
 
 		Line(T _k, T _b): k(_k), b(_b) {}
@@ -40,12 +41,15 @@ namespace Geometry {
  *		k = (y2 - y1) / (x2 - x1)
  *		b = y1 - k * x1
  */
-		Line(Segment<T> segment) {
-			k = (segment.end.y - segment.start.y) / (segment.end.x - segment.start.x);
+		Line(const Segment<T>& segment) {
+			if(std::abs(segment.end.x - segment.start.x) <= EPS)
+				k = 1e9;
+			else
+				k = (segment.end.y - segment.start.y) / (segment.end.x - segment.start.x);
 			b = segment.start.y - k * segment.start.x;
 		}
 
-		Line(Point<T> start, Point<T> end) {
+		Line(const Point& start, const Point& end) {
 			k = (end.y - start.y) / (end.x - start.x);
 			b = start.y - k * start.x;
 		}
@@ -56,8 +60,8 @@ namespace Geometry {
 		}
 
 //		bool contains(const Point<T>& point) const;
-		bool contains(const Point<T>& point) const {
-			return point.x * k + b == point.y;
+		bool contains(const Point& point) const {
+			return std::abs(point.x * k + b - point.y) <= EPS;
 		}
 
 /*
@@ -70,7 +74,7 @@ namespace Geometry {
 
 //		bool intersects(const Line<T>& other) const;
 		bool intersects(const Line<T>& other) const {
-			if(k == other.k && b != other.b)
+			if(std::abs(k - other.k) <= EPS && std::abs(b - other.b) > EPS)
 				return false;
 			return true;
 		}
@@ -79,15 +83,19 @@ namespace Geometry {
 //		template<class T>
 		lines_intersection get_intersection(const Line<T>& other) const {
 			lines_intersection answer;
-			if(k == other.k) {
-				if(b == other.b) {
-					answer.answer = LINE_INTERSECT_TYPES::INFINITUDE;
+			if(std::abs(k - other.k) <= EPS) {
+				if(std::abs(b - other.b) <= EPS) {
+					answer.answer = INTERSECT_TYPES::INFINITUDE;
 				} else {
-					answer.answer = LINE_INTERSECT_TYPES::PARALLEL;
+					answer.answer = INTERSECT_TYPES::PARALLEL;
 				}
+			} else {
+				answer.answer = INTERSECT_TYPES::POINT;
+				answer.point.x = (other.b - b) / (k - other.k);
+				answer.point.y = k * answer.point.x + b;
+
+//				std::cout << "INTERSECT LINES" << std::endl;
 			}
-			answer.answer = LINE_INTERSECT_TYPES::POINT;
-			answer.point = (other.b - b) / (k - other.k);
 
 			return answer;
 		}

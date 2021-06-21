@@ -8,7 +8,7 @@
 #include <iostream>
 
 namespace Settings {
-	const double Game::playerSpeed = 300;
+	const double Game::playerSpeed = 350;
 }
 
 
