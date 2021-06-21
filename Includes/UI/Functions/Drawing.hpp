@@ -15,3 +15,6 @@ void drawImage(sf::RenderTarget& target, sf::RenderStates states, const sf::Floa
 void drawText(sf::RenderTarget& target, sf::RenderStates states, const sf::FloatRect& _scaledCanvas, const std::string& text, const sf::Color& _color);
 
 void drawPoint(sf::RenderTarget& target, sf::RenderStates states, sf::Vector2f _scaledPosition, const float _scaledSize, const sf::Color& _color);
+
+void drawLine(sf::RenderTarget& target, sf::RenderStates states, const sf::Vector2f& _scaledStartPoint, const sf::Vector2f& _scaledEndPoint, const sf::Color& _color);
+

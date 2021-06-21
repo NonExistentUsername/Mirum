@@ -52,3 +52,15 @@ void drawPoint(sf::RenderTarget& target, sf::RenderStates states, sf::Vector2f _
 
 	target.draw(point, states);
 }
+
+void drawLine(sf::RenderTarget& target, sf::RenderStates states, const sf::Vector2f& _scaledStartPoint, const sf::Vector2f& _scaledEndPoint, const sf::Color& _color) {
+	sf::Vertex line[] = {
+		sf::Vertex(_scaledStartPoint),
+		sf::Vertex(_scaledEndPoint)
+	};
+
+	line[0].color = _color;
+	line[1].color = _color;
+
+	target.draw(line, 2, sf::Lines, states);
+}

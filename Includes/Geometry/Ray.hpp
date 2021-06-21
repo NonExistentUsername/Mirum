@@ -7,6 +7,19 @@
 
 #pragma once
 
+#include "Vector2.hpp"
+
 namespace Geometry{
+
+	template<class T>
+	struct Ray {
+		using Point = Vector2<T>;
+
+		Point start;
+		T direction;
+//		new_point = point + len * k;
+//
+
+	};
 
 }

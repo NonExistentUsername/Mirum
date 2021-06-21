@@ -8,7 +8,6 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include "Map.hpp"
 
 #include <string>
 #include <iostream>
@@ -22,6 +21,8 @@ namespace Game {
 		std::chrono::steady_clock start;
 
 		void processMove();
+
+		friend class Processor;
 	public:
 		Player();
 

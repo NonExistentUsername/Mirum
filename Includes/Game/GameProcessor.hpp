@@ -9,6 +9,8 @@
 
 #include <SFML/Graphics.hpp>
 #include "Player.hpp"
+#include "Map.hpp"
+#include "../../Includes/UI/Functions/Drawing.hpp"
 
 #include <string>
 #include <iostream>
@@ -20,6 +22,12 @@ namespace Game {
 
 		Map map;
 
+		void drawLines(sf::RenderTarget& target, sf::RenderStates states) const {
+			for(const auto& point : map.points)
+				drawLine(target, states, Scale(user.position), Scale(point), sf::Color::Blue);
+
+
+		}
 	public:
 		Processor() {
 
@@ -29,7 +37,7 @@ namespace Game {
 			target.draw(user, states);
 			target.draw(map, states);
 
-//			drawLines(target, states);
+			drawLines(target, states);
 		}
 	};
 }
