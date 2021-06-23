@@ -8,6 +8,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include "../Geometry/Vector2.hpp"
 
 #include <string>
 #include <iostream>
@@ -16,17 +17,24 @@
 namespace Game {
 	class Player : public sf::Drawable {
 	private:
-		sf::Vector2f position;
+		using Point = Geometry::Vector2<float>;
 
-		std::chrono::steady_clock start;
+//		sf::Vector2f position;
+		Point position;
 
-		void processMove();
+//		std::chrono::steady_clock start;
+
+//		void processMove();
 
 		friend class Processor;
 	public:
 		Player();
 
 		void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+
+		void move(Geometry::Vector2<float> vector);
+		void moveX(float value);
+		void moveY(float value);
 
 		~Player();
 	};

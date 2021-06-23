@@ -7,7 +7,6 @@
 
 
 #pragma once
-#include "../UI/UI.hpp"
 #include "../UI/Functions/Scale.hpp"
 #include "../General/TexturesManager.hpp"
 #include "../General/MenuManager.hpp"
@@ -15,6 +14,7 @@
 #include <vector>
 
 #include "../Game/GameProcessor.hpp"
+#include "../UI/All.hpp"
 
 //class MainMenu;
 

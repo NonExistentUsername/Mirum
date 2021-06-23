@@ -12,4 +12,4 @@
 #include <memory>
 
 extern sf::RenderWindow window;
-extern const float EPS;
+extern const double EPS;

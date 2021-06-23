@@ -43,7 +43,7 @@ namespace Geometry {
  */
 		Line(const Segment<T>& segment) {
 			if(std::abs(segment.end.x - segment.start.x) <= EPS)
-				k = 1e9;
+				k = 1e7;
 			else
 				k = (segment.end.y - segment.start.y) / (segment.end.x - segment.start.x);
 			b = segment.start.y - k * segment.start.x;

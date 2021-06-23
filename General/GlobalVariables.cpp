@@ -11,4 +11,4 @@
 
 sf::RenderWindow window = createWindow();
 
-const float EPS = 1e-2;
+const double EPS = 1e-4;

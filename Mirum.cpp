@@ -26,9 +26,9 @@
 #include "Includes/General/GlobalVariables.hpp"
 #include "Includes/General/RenderFrame.hpp"
 #include "Includes/General/EventManager.hpp"
+#include "Includes/UI/All.hpp"
 #include "Includes/UI/Functions/Drawing.hpp"
 #include "Includes/UI/Functions/Scale.hpp"
-#include "Includes/UI/UI.hpp"
 
 #ifdef DEBUG
 #include "Includes/Tools/Tests.hpp"
@@ -66,10 +66,11 @@ void renderLoop() {
 int main() {
 #ifdef DEBUG
 	Tests::All();
-#endif
 
 	std::cerr << std::fixed;
 	std::cerr << std::setprecision(5);
+#endif
+
 
 	init();
 	window.setFramerateLimit(60);

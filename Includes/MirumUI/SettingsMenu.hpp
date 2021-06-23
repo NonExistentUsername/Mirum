@@ -7,10 +7,10 @@
 
 //#include "MainMenu.hpp"
 #pragma once
-#include "../UI/UI.hpp"
 #include "../UI/Functions/Scale.hpp"
 #include "../General/TexturesManager.hpp"
 #include <vector>
+#include "../UI/All.hpp"
 
 //class MainMenu;
 

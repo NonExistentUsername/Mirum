@@ -9,6 +9,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "../../General/Settings/User.hpp"
+#include "../../Geometry/Vector2.hpp"
 
 template<class T>
 inline sf::FloatRect Scale(const sf::Rect<T>& rect) {
@@ -26,6 +27,11 @@ inline sf::FloatRect Scale(const sf::Rect<T>& rect) {
 template<class T>
 inline sf::Vector2<T> Scale(const sf::Vector2<T>& vec) {
 	return sf::Vector2<T>(vec.x * Settings::User::Kx(), vec.y * Settings::User::Ky());
+}
+
+template<class T>
+inline Geometry::Vector2<T> Scale(const Geometry::Vector2<T>& vec) {
+	return Geometry::Vector2<T>(vec.x * Settings::User::Kx(), vec.y * Settings::User::Ky());
 }
 
 template<class T>

@@ -11,30 +11,28 @@
 #include "../Includes/UI/Functions/Scale.hpp"
 
 namespace Game {
-	void Player::processMove() {
-		static std::chrono::steady_clock::time_point start = std::chrono::steady_clock::now();
-
-		auto duration = std::chrono::steady_clock::now() - start;
-
-
-		if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-			position.x -= Settings::Game::playerSpeed * std::chrono::duration_cast<std::chrono::microseconds>(duration).count()/1000000.;
-		}
-		if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-			position.x += Settings::Game::playerSpeed * std::chrono::duration_cast<std::chrono::microseconds>(duration).count()/1000000.;
-		}
-		if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-			position.y -= Settings::Game::playerSpeed * std::chrono::duration_cast<std::chrono::microseconds>(duration).count()/1000000.;
-		}
-		if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-			position.y += Settings::Game::playerSpeed * std::chrono::duration_cast<std::chrono::microseconds>(duration).count()/1000000.;
-		}
-
-		start = std::chrono::steady_clock::now();
-	}
+//		static std::chrono::steady_clock::time_point start = std::chrono::steady_clock::now();
+//
+//		auto duration = std::chrono::steady_clock::now() - start;
+//
+//
+//		if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+//			position.x -= Settings::Game::playerSpeed * std::chrono::duration_cast<std::chrono::microseconds>(duration).count()/1000000.;
+//		}
+//		if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+//			position.x += Settings::Game::playerSpeed * std::chrono::duration_cast<std::chrono::microseconds>(duration).count()/1000000.;
+//		}
+//		if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
+//			position.y -= Settings::Game::playerSpeed * std::chrono::duration_cast<std::chrono::microseconds>(duration).count()/1000000.;
+//		}
+//		if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
+//			position.y += Settings::Game::playerSpeed * std::chrono::duration_cast<std::chrono::microseconds>(duration).count()/1000000.;
+//		}
+//
+//		start = std::chrono::steady_clock::now();
 
 	Player::Player(): position(1920/2, 1080/2) {
-		EventManager::frameEvent += MY_METHOD_HANDLER(Player::processMove);
+//		EventManager::frameEvent += MY_METHOD_HANDLER(Player::processMove);
 	}
 
 	void Player::draw(sf::RenderTarget& target, sf::RenderStates states) const {
@@ -42,18 +40,30 @@ namespace Game {
 		sf::CircleShape image;
 
 		float _scaledSize = ScaleSize(30);
-		sf::Vector2f _scaledPos = Scale(position);
+		Point _scaledPos = Scale(position);
 		_scaledPos.x -= _scaledSize;
 		_scaledPos.y -= _scaledSize;
 
-		image.setPosition(_scaledPos);
+		image.setPosition(_scaledPos.x, _scaledPos.y);
 		image.setFillColor(sf::Color::Black);
 		image.setRadius(ScaleSize(30));
 
 		target.draw(image);
 	}
 
+	void Player::move(Geometry::Vector2<float> vector) {
+		position += vector;
+	}
+
+	void Player::moveX(float value) {
+		position.x += value;
+	}
+
+	void Player::moveY(float value) {
+		position.y += value;
+	}
+
 	Player::~Player() {
-		EventManager::frameEvent -= MY_METHOD_HANDLER(Player::processMove);
+//		EventManager::frameEvent -= MY_METHOD_HANDLER(Player::processMove);
 	}
 }

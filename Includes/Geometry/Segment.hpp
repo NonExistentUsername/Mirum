@@ -29,18 +29,23 @@ namespace Geometry {
 
 			Line<T> _t(*this);
 
-			#ifdef DEBUG
-			if(!(_t.contains(point))) {
-				std::cerr << "Segmnet::contains not contains" << std::endl;
-				std::cerr << "k, b " << _t.k << " " << _t.b << std::endl;
-			}
-			#endif
-
+//			if(!_t.contains(point)) {
+//				std::cerr << "not contains" << std::endl;
+//				std::cerr << point.x << " " << point.y << std::endl;
+//				std::cerr << "k,b " << _t.k << " " << _t.b << std::endl;
+//			}
+//			if(!(	   std::min(start.x, end.x) - EPS <= point.x
+//					&& std::min(start.y, end.y) - EPS <= point.y
+//					&& point.x <= std::max(start.x, end.x) + EPS
+//					&& point.y <= std::max(start.y, end.y) + EPS)) {
+//				std::cerr << "not contains XZX" << std::endl;
+//				std::cerr << point.x << " " << point.y << std::endl;
+//				std::cerr << "X }{ " << std::min(start.x, end.x) - EPS << " " << std::max(start.x, end.x) + EPS << std::endl;
+//				std::cerr << "Y }{ " << std::min(start.y, end.y) - EPS << " " << std::max(start.y, end.y) + EPS << std::endl;
+//
+//			}
+//
 			return Line<T>(*this).contains(point)
-//					&& (std::min(start.x, end.x) <= point.x
-//					&& std::min(start.y, end.y) <= point.y
-//					&& point.x <= std::max(start.x, end.x)
-//					&& point.y <= std::max(start.y, end.y));
 					&& (std::min(start.x, end.x) - EPS <= point.x
 					&& std::min(start.y, end.y) - EPS <= point.y
 					&& point.x <= std::max(start.x, end.x) + EPS
@@ -65,10 +70,7 @@ namespace Geometry {
 			if(intersection.answer == INTERSECT_TYPES::POINT) {
 				if(!(contains(intersection.point) && other.contains(intersection.point))) {
 					intersection.answer = INTERSECT_TYPES::NONE;
-					#ifdef DEBUG
-					std::cerr << "NOT CONTAINS" << std::endl;
-					std::cerr << intersection.point.x << " " << intersection.point.y << std::endl;
-					#endif
+//					std::cerr << "NOT CONTAINS" << std::endl;
 				}
 			}
 			return intersection;
@@ -78,5 +80,6 @@ namespace Geometry {
 		~Segment() {}
 	};
 
-	using Segmentf = Segment<float>;
+//	using Segmentf = Segment<float>;
+	using Segmentd = Segment<double>;
 }
