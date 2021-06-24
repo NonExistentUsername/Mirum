@@ -11,13 +11,13 @@
 
 sf::RenderWindow createWindow() {
     const sf::Vector2<uint16_t> windowSize = Settings::User::getWindowSize();
-    return sf::RenderWindow(sf::VideoMode(windowSize.x, windowSize.y), Settings::User::windowName, Settings::User::getWindowStyle());
+    return sf::RenderWindow(sf::VideoMode(windowSize.x, windowSize.y), Settings::User::windowName, Settings::User::getWindowStyle(), Settings::User::getContextSettings());
 }
 
 void reloadWindow() {
 	window.close();
     const sf::Vector2<uint16_t> windowSize = Settings::User::getWindowSize();
-	window.create(sf::VideoMode(windowSize.x, windowSize.y), Settings::User::windowName, Settings::User::getWindowStyle());
+	window.create(sf::VideoMode(windowSize.x, windowSize.y), Settings::User::windowName, Settings::User::getWindowStyle(), Settings::User::getContextSettings());
 	window.setFramerateLimit(60);
 }
 

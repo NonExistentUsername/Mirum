@@ -3,7 +3,7 @@
 // Author      : 
 // Version     :
 // Copyright   : Your copyright notice
-// Description : Hello World in C++, Ansi-style
+// Description : Game
 //============================================================================
 
 #include <SFML/Window.hpp>
@@ -57,8 +57,6 @@ void renderLoop() {
 		window.draw(_fps);
 
         window.display();
-
-//        sf::Vector2<>
     }
 }
 
@@ -70,7 +68,6 @@ int main() {
 	std::cerr << std::fixed;
 	std::cerr << std::setprecision(5);
 #endif
-
 
 	init();
 	window.setFramerateLimit(60);

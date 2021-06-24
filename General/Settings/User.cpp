@@ -12,7 +12,11 @@
 
 namespace Settings {
 
-	sf::ContextSettings User::contextSettings;
+	sf::ContextSettings User::contextSettings = []() {
+		sf::ContextSettings context_settings;
+		context_settings.antialiasingLevel = 8;
+		return context_settings;
+	}();
 
 	uint32_t User::windowStyle = sf::Style::Titlebar | sf::Style::Close;
 

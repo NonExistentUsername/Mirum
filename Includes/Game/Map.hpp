@@ -13,6 +13,7 @@
 //#include "GameProcessor.hpp"
 #include "../Geometry/Line.hpp"
 #include "../Geometry/Segment.hpp"
+#include "../Geometry/Ray.hpp"
 #include "Player.hpp"
 
 #include <string>
@@ -28,37 +29,19 @@ namespace Game {
 
 		std::vector<Segmentd> segments;
 
-		void processMove();
+		inline void processMove();
+		inline void load_map();
+
+		inline Vector2d get_ray_intersection(const Rayd& ray) const;
 
 		friend class Processor;
 	public:
-		Map() : user(new Player()) {
-			EventManager::frameEvent += MY_METHOD_HANDLER(Map::processMove);
+		Map();
 
-			segments.push_back(Segmentd(0, 0, 1920, 0)); //0
-			segments.push_back(Segmentd(1920, 0, 1920, 1080));
-			segments.push_back(Segmentd(1920, 1080, 0, 1080)); // 2
-			segments.push_back(Segmentd(0, 1080, 0, 0)); //3
-			segments.push_back(Segmentd{100, 100, 150, 300}); //4
-			segments.push_back(Segmentd{300, 100, 200, 800}); //5
-			segments.push_back(Segmentd{900, 900, 700, 1000}); //6
-			segments.push_back(Segmentd{500, 500, 900, 500}); //7
-			segments.push_back(Segmentd{500, 500, 500, 900}); //8
-			segments.push_back(Segmentd{900, 900, 500, 900}); //9
-			segments.push_back(Segmentd{900, 900, 900, 500}); //10
-		}
+		std::vector<Vector2<double>> get_light_points(const Vector2d& light_source) const;
 
-		void draw(sf::RenderTarget& target, sf::RenderStates states) const override {
-			target.draw(*(user.get()), states);
+		void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 
-			for(const Segmentd& segment : segments) {
-				drawLine(target, states, Scale(sf::Vector2f(segment.start.x, segment.start.y)),
-										 Scale(sf::Vector2f(segment.end.x, segment.end.y)), sf::Color::Magenta);
-			}
-		}
-
-		~Map() {
-			EventManager::frameEvent += MY_METHOD_HANDLER(Map::processMove);
-		}
+		~Map();
 	};
 }

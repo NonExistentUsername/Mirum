@@ -51,15 +51,15 @@ namespace Game {
 		target.draw(image);
 	}
 
-	void Player::move(Geometry::Vector2<float> vector) {
+	void Player::move(Geometry::Vector2<double> vector) {
 		position += vector;
 	}
 
-	void Player::moveX(float value) {
+	void Player::moveX(double value) {
 		position.x += value;
 	}
 
-	void Player::moveY(float value) {
+	void Player::moveY(double value) {
 		position.y += value;
 	}
 

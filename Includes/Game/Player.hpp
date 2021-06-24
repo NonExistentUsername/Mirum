@@ -17,7 +17,7 @@
 namespace Game {
 	class Player : public sf::Drawable {
 	private:
-		using Point = Geometry::Vector2<float>;
+		using Point = Geometry::Vector2<double>;
 
 //		sf::Vector2f position;
 		Point position;
@@ -32,9 +32,9 @@ namespace Game {
 
 		void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 
-		void move(Geometry::Vector2<float> vector);
-		void moveX(float value);
-		void moveY(float value);
+		void move(Geometry::Vector2<double> vector);
+		void moveX(double value);
+		void moveY(double value);
 
 		~Player();
 	};

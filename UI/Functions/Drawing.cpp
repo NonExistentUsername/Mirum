@@ -43,13 +43,12 @@ void drawText(sf::RenderTarget& target, sf::RenderStates states, const sf::Float
 	}
 }
 
-void drawPoint(sf::RenderTarget& target, sf::RenderStates states, sf::Vector2f _scaledPosition, const float _scaledSize, const sf::Color& _color) {
-	sf::CircleShape point(_scaledSize);
-	_scaledPosition.x -= _scaledSize;
-	_scaledPosition.y -= _scaledSize;
-	point.setPosition(_scaledPosition);
+sf::CircleShape point;
+void drawPoint(sf::RenderTarget& target, const sf::RenderStates& states, const Geometry::Vector2d& _position, float _size, const sf::Color& _color) {
+	_size *= std::min(Settings::User::Kx(), Settings::User::Ky());
+	point.setRadius(_size);
+	point.setPosition(_position.x * Settings::User::Kx() - _size, _position.y * Settings::User::Ky() - _size);
 	point.setFillColor(_color);
-
 	target.draw(point, states);
 }
 
@@ -59,8 +58,7 @@ void drawLine(sf::RenderTarget& target, sf::RenderStates states, const sf::Vecto
 		sf::Vertex(_scaledEndPoint)
 	};
 
-	line[0].color = _color;
-	line[1].color = _color;
+	line[0].color = line[1].color = _color;
 
 	target.draw(line, 2, sf::Lines, states);
 }

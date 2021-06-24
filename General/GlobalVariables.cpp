@@ -11,4 +11,5 @@
 
 sf::RenderWindow window = createWindow();
 
-const double EPS = 1e-4;
+unsigned long long delta_time = 0;
+const double EPS = 1e-6;

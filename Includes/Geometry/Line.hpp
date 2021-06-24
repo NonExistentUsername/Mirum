@@ -9,6 +9,7 @@
 
 #include "Vector2.hpp"
 #include "Segment.hpp"
+#include "line_intersection.hpp"
 #include <stdint.h>
 
 namespace Geometry {
@@ -24,11 +25,6 @@ namespace Geometry {
 		using Point = Vector2<T>;
 
 		T k, b;
-
-		struct lines_intersection {
-			INTERSECT_TYPES answer;
-			Vector2<T> point;
-		};
 
 		Line(T _k, T _b): k(_k), b(_b) {}
 
@@ -81,8 +77,8 @@ namespace Geometry {
 
 //		lines_intersection get_intersection(const Line<T>& other) const;
 //		template<class T>
-		lines_intersection get_intersection(const Line<T>& other) const {
-			lines_intersection answer;
+		lines_intersection<T> get_intersection(const Line<T>& other) const {
+			lines_intersection<T> answer;
 			if(std::abs(k - other.k) <= EPS) {
 				if(std::abs(b - other.b) <= EPS) {
 					answer.answer = INTERSECT_TYPES::INFINITUDE;
