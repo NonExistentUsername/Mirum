@@ -1,0 +1,81 @@
+{
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "SFML Debug",
+            "command": "C:\\msys64\\mingw64\\bin\\g++.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+				"${workspaceFolder}\\src\\*.cpp",
+                "-o",
+				"${workspaceFolder}\\build\\debug\\main.exe",
+				"-I",
+				"${workspaceFolder}\\include",
+				"-L",
+				"C:\\msys64\\mingw64\\bin",
+				"-l",
+				"openal32",
+				"-l",
+				"sfml-audio-d-2",
+				"-l",
+				"sfml-graphics-d-2",
+				"-l",
+				"sfml-network-d-2",
+				"-l",
+				"sfml-system-d-2",
+				"-l",
+				"sfml-window-d-2"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "type": "cppbuild",
+            "label": "SFML Release",
+            "command": "C:\\msys64\\mingw64\\bin\\g++.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+				"${workspaceFolder}\\src\\*.cpp",
+                "-o",
+				"${workspaceFolder}\\build\\debug\\main.exe",
+				"-I",
+				"${workspaceFolder}\\include",
+				"-L",
+				"C:\\msys64\\mingw64\\bin",
+				"-l",
+				"openal32",
+				"-l",
+				"sfml-audio-2",
+				"-l",
+				"sfml-graphics-2",
+				"-l",
+				"sfml-network-2",
+				"-l",
+				"sfml-system-2",
+				"-l",
+				"sfml-window-2"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ],
+    "version": "2.0.0"
+}
