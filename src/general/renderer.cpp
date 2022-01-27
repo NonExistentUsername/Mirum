@@ -8,7 +8,7 @@ Renderer::Renderer() {
                             sf::Style::Titlebar | sf::Style::Close);
 }
 
-void Renderer::redraw(const Application& app) {
+void Renderer::display() {
     window->display();
 }
 

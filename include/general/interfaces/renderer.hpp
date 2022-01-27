@@ -4,5 +4,5 @@ class Application;
 
 class IRenderer {
 public:
-    virtual void redraw(const Application& app) = 0;
+    virtual void display() = 0;
 };

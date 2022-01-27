@@ -10,7 +10,7 @@ private:
 public:
     Renderer();
 
-    void redraw(const Application& app) override;
+    void display() override;
 
     ~Renderer();
 };
