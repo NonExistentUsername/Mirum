@@ -1,9 +1,9 @@
 #pragma once
 
-class Renderer;
+class IRenderer;
 class Application {
 private:
-    Renderer* renderer = nullptr;
+    IRenderer* renderer = nullptr;
 public:
     void init();
     void game_loop();
