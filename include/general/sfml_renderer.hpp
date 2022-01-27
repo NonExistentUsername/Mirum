@@ -4,13 +4,13 @@
 
 #include "interfaces/renderer.hpp"
 
-class Renderer : public IRenderer {
+class SFMLRenderer : public IRenderer {
 private:
     sf::RenderWindow* window = nullptr;
 public:
-    Renderer();
+    SFMLRenderer();
 
     void display() override;
 
-    ~Renderer();
+    ~SFMLRenderer();
 };

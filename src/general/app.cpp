@@ -1,5 +1,5 @@
 #include "general/app.hpp"
-#include "general/renderer.hpp"
+#include "general/sfml_renderer.hpp"
 #include "general/interfaces/controller.hpp"
 
 void Application::update() {
@@ -11,7 +11,7 @@ void Application::redraw() {
 }
 
 void Application::init() {
-    renderer = new Renderer();
+    renderer = new SFMLRenderer();
 }
 
 void Application::game_loop() {

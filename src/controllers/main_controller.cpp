@@ -1,4 +1,4 @@
-#include "controllers/mainController.hpp"
+#include "controllers/main_controller.hpp"
 
 void MainController::update() {
     //TODO
