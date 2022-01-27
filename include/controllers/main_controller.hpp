@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../interfaces/controller.hpp"
+#include "interfaces/controller.hpp"
 
 class MainController : public IController {
 public:

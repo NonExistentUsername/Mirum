@@ -1,4 +1,4 @@
-#include "general/app.hpp"
+#include "app.hpp"
 #include "controllers/main_controller.hpp"
 
 int main() {

@@ -1,7 +1,7 @@
 #include <SFML/Graphics.hpp>
 
-#include "general/sfml_renderer.hpp"
-#include "general/app.hpp"
+#include "render/sfml_renderer.hpp"
+#include "app.hpp"
 
 SFMLRenderer::SFMLRenderer() {
     window = new sf::RenderWindow(sf::VideoMode(222, 222, 32), "SFML Pong",

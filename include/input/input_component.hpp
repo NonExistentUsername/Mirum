@@ -6,5 +6,5 @@
 class IInputComponent {
 public:
     using EventType = sf::Event;
-    virtual void update(const Command<void(const EventType&)>& command) = 0;
+    virtual void handleEvents(const Command<void(const EventType&)>& command) = 0;
 };

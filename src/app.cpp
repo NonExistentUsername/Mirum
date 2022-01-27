@@ -1,6 +1,6 @@
-#include "general/app.hpp"
-#include "general/sfml_renderer.hpp"
-#include "interfaces/controller.hpp"
+#include "app.hpp"
+#include "render/sfml_renderer.hpp"
+#include "controllers/interfaces/controller.hpp"
 
 void Application::update() {
     controller->update();
