@@ -1,6 +1,6 @@
 #pragma once
 
-#include "renderer.hpp"
+class Renderer;
 class Application {
 private:
     Renderer* renderer = nullptr;

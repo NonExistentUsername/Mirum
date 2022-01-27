@@ -1,4 +1,5 @@
 #include "general/app.hpp"
+#include "general/renderer.hpp"
 
 void Application::init() {
     renderer = new Renderer();

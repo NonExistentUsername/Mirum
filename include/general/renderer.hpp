@@ -1,9 +1,10 @@
 #pragma once
 
-class Renderer {
-public:
-    Renderer() {
-        //TODO
-    }
+#include "irenderer.hpp"
 
+class Renderer : public IRenderer {
+public:
+    Renderer();
+
+    void redraw(const Application& app) override;
 };
