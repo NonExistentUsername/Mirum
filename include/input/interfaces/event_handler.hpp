@@ -1,8 +1,8 @@
 #pragma once
 
-#include "input/events.hpp"
+#include <SFML/Graphics.hpp>
 
 class IEventHandler {
 public:
-    virtual void handle(const Event& event) = 0;
+    virtual void handle(const sf::Event& event) = 0;
 };

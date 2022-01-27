@@ -4,7 +4,7 @@
 
 class MyEventHandler : public IEventHandler {
 public:
-    void handle(const Event& event) override {
+    void handle(const sf::Event& event) override {
         //TODO
     }
 };
