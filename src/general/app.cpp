@@ -1,4 +1,4 @@
-#include "app.hpp"
+#include "general/app.hpp"
 
 void Application::init() {
     //TODO
