@@ -1,10 +1,17 @@
+#include <SFML/Graphics.hpp>
+
 #include "general/renderer.hpp"
 #include "general/app.hpp"
 
 Renderer::Renderer() {
-    //TODO
+    window = new sf::RenderWindow(sf::VideoMode(222, 222, 32), "SFML Pong",
+                            sf::Style::Titlebar | sf::Style::Close);
 }
 
 void Renderer::redraw(const Application& app) {
-    
+    window->display();
+}
+
+Renderer::~Renderer() {
+    delete window;
 }
