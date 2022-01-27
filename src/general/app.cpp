@@ -1,6 +1,6 @@
 #include "general/app.hpp"
 #include "general/renderer.hpp"
-#include "general/icontroller.hpp"
+#include "general/interfaces/controller.hpp"
 
 void Application::update() {
     controller->update();

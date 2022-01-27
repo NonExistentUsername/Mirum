@@ -2,7 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "irenderer.hpp"
+#include "interfaces/renderer.hpp"
 
 class Renderer : public IRenderer {
 private:
