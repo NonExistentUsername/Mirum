@@ -4,13 +4,16 @@
 
 #include "interfaces/input_component.hpp"
 
+class IEventHandler;
+class SFMLRenderer;
+
 class SFMLInputComponent : public IInputComponent {
 private:
     sf::RenderWindow* window;
 protected:
     bool isKeyPressed(KEY_CODE key_code) override;
 public:
-    SFMLInputComponent(sf::RenderWindow* window);
+    SFMLInputComponent(const SFMLRenderer* const renderer);
 
-    void handleEvents(const Command<void(const Event&)>& command) override;
+    void handleEvents(const IEventHandler* command) override;
 };

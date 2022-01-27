@@ -2,6 +2,7 @@
 
 class IRenderer;
 class Application;
+class IInputComponent;
 
 class IController {
 protected:
@@ -9,6 +10,6 @@ protected:
 public:
     IController(Application* app): app(app) {}
 
-    virtual void update() = 0;
+    virtual void update(IInputComponent* input_component) = 0;
     virtual void draw(IRenderer* renderer) = 0;
 };

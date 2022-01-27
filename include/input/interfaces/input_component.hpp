@@ -1,7 +1,8 @@
 #pragma once
 
-#include "command.hpp"
 #include "input/events.hpp"
+
+class IEventHandler;
 
 class IInputComponent {
 protected:
@@ -9,5 +10,5 @@ protected:
 
     friend class InputComponentState;
 public:
-    virtual void handleEvents(const Command<void(const Event&)>& command) = 0;
+    virtual void handleEvents(const IEventHandler* handler) = 0;
 };

@@ -5,8 +5,10 @@
 #include "interfaces/renderer.hpp"
 
 class SFMLRenderer : public IRenderer {
-private:
+protected:
     sf::RenderWindow* window = nullptr;
+
+    friend class SFMLInputComponent;
 public:
     SFMLRenderer();
 
