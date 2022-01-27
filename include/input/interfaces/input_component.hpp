@@ -1,10 +1,13 @@
 #pragma once
 
-#include <SFML/Graphics.hpp>
-#include "../command.hpp"
+#include "command.hpp"
+#include "input/events.hpp"
 
 class IInputComponent {
+protected:
+    virtual bool isKeyPressed(KEY_CODE key_code) = 0;
+
+    friend class InputComponentState;
 public:
-    using EventType = sf::Event;
-    virtual void handleEvents(const Command<void(const EventType&)>& command) = 0;
+    virtual void handleEvents(const Command<void(const Event&)>& command) = 0;
 };

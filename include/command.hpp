@@ -1,11 +1,11 @@
 #pragma once
 
-template<class T, class... Args>
+template<class T>
 class Command {
 private:
-    T(Args...) command;
+    T command;
 public:
-    Command(T(Args...) command): command(command) {}
+    Command(T command): command(command) {}
 
     T execute() {
         return command();

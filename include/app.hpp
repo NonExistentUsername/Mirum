@@ -7,6 +7,7 @@ private:
     IRenderer* renderer = nullptr;
     IController* controller = nullptr;
 
+
     void update();
     void redraw();
 public:
