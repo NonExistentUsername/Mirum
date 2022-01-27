@@ -1,7 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include "command.hpp"
+#include "../command.hpp"
 
 class IInputComponent {
 public:
