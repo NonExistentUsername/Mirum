@@ -10,8 +10,9 @@ void Application::redraw() {
     controller->draw(renderer);
 }
 
-void Application::init() {
+void Application::init(IController* controller) {
     renderer = new SFMLRenderer();
+    this->controller = controller;
 }
 
 void Application::game_loop() {

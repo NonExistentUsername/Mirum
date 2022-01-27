@@ -10,7 +10,7 @@ private:
     void update();
     void redraw();
 public:
-    void init();
+    void init(IController* controller);
     void game_loop();
 
     ~Application();
