@@ -15,7 +15,7 @@ include(CTest)
 enable_testing()
 
 include_directories(src)
-include_directories(src/general)
+include_directories(include)
 add_executable(Mirum ${MIRUM_SOURCES})
 target_include_directories(Mirum PRIVATE ${Foo_INCLUDE_DIRS})
 
