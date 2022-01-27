@@ -8,3 +8,8 @@ void Application::init() {
 void Application::game_loop() {
     //TODO
 }
+
+Application::~Application() {
+    if(renderer)
+        delete renderer;
+}

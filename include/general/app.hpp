@@ -7,4 +7,6 @@ private:
 public:
     void init();
     void game_loop();
+
+    ~Application();
 };
