@@ -10,7 +10,6 @@ AppCloser::AppCloser(Application* app):
     app(app) {}
 
 void AppCloser::notify(const sf::Event& message) {
-    std::cout << "Event Handler" << std::endl;
     app->close();
 }
 
