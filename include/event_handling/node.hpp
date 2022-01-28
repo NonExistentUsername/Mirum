@@ -5,12 +5,10 @@
 template<class T> class Observer;
 
 struct EventNode {
-    using EventObserver = Observer<const sf::Event&>;
-
     EventNode* next = nullptr;
     EventNode* previous = nullptr;
 
-    EventObserver* observer;
+    Observer<const sf::Event&>* observer;
 
-    EventNode(EventObserver* observer);
+    EventNode(Observer<const sf::Event&>* observer);
 };

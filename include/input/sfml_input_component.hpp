@@ -13,5 +13,5 @@ private:
 public:
     SFMLInputComponent(sf::RenderWindow* window);
 
-    void handleEvents(const IEventHandler* command) override;
+    void handleEvents(IEventHandler* command) override;
 };

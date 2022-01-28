@@ -4,5 +4,5 @@ class IEventHandler;
 
 class IInputComponent {
 public:
-    virtual void handleEvents(const IEventHandler* handler) = 0;
+    virtual void handleEvents(IEventHandler* handler) = 0;
 };

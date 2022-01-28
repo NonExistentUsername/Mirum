@@ -3,8 +3,6 @@
 #include <SFML/Graphics.hpp>
 
 class IEventHandler {
-protected:
+public:
     virtual void handle(const sf::Event& event) = 0;
-
-    friend class IInputComponent;
 };
