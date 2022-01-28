@@ -11,7 +11,7 @@ class SFMLInputComponent : public IInputComponent {
 private:
     sf::RenderWindow* window;
 public:
-    SFMLInputComponent(const SFMLRenderer* const renderer);
+    SFMLInputComponent(sf::RenderWindow* window);
 
     void handleEvents(const IEventHandler* command) override;
 };

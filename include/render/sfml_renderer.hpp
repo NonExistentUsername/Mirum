@@ -10,9 +10,7 @@ protected:
 
     friend class SFMLInputComponent;
 public:
-    SFMLRenderer();
+    SFMLRenderer(sf::RenderWindow* window);
 
     void display() override;
-
-    ~SFMLRenderer();
 };

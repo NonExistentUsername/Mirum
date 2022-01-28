@@ -1,9 +1,13 @@
 #include <cassert>
 #include "window/sfml_window.hpp"
+#include "render/sfml_renderer.hpp"
+#include "input/sfml_input_component.hpp"
 
 SFMLWindow::SFMLWindow() {
     window = new sf::RenderWindow(sf::VideoMode(222, 222, 32), "Mirum",
                             sf::Style::Titlebar | sf::Style::Close);
+    renderer = new SFMLRenderer(window);
+    input = new SFMLInputComponent(window);
 }
 
 IRenderer* SFMLWindow::getRenderer() {

@@ -1,8 +1,8 @@
 #include "input/sfml_input_component.hpp"
 #include "render/sfml_renderer.hpp"
 
-SFMLInputComponent::SFMLInputComponent(const SFMLRenderer* const renderer):
-    window(renderer->window) {}
+SFMLInputComponent::SFMLInputComponent(sf::RenderWindow* window):
+    window(window) {}
 
 void SFMLInputComponent::handleEvents(const IEventHandler* command) {
     sf::Event event;
