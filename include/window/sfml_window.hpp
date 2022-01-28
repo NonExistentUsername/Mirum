@@ -6,7 +6,7 @@
 class SFMLRenderer;
 class SFMLInputComponent;
 
-class SFMLWindow : public Window {
+class SFMLWindow : public IWindow {
 private:
     sf::RenderWindow* window = nullptr;
 
