@@ -7,7 +7,7 @@ EventHandler::EventHandler(IInputComponent* input):
     input(input) {}
 
 void EventHandler::handle(const sf::Event& event) {
-    //TODO
+    managers[event.type].notify(event);
 }
 
 void EventHandler::update() {
