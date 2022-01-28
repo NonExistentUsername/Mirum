@@ -2,7 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "interfaces/input_component.hpp"
+#include "iinput_component.hpp"
 
 class IEventHandler;
 class SFMLRenderer;

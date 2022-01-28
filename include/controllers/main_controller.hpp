@@ -1,7 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include "interfaces/controller.hpp"
+#include "icontroller.hpp"
 #include "event_handling/key.hpp"
 #include "tools/observer.hpp"
 

@@ -1,10 +1,10 @@
 #include <cassert>
 
 #include "app.hpp"
-#include "render/interfaces/renderer.hpp"
-#include "input/interfaces/input_component.hpp"
-#include "controllers/interfaces/controller.hpp"
-#include "window/interfaces/window.hpp"
+#include "render/irenderer.hpp"
+#include "input/iinput_component.hpp"
+#include "controllers/icontroller.hpp"
+#include "window/iwindow.hpp"
 #include "event_handling/event_handler.hpp"
 
 void Application::update() {

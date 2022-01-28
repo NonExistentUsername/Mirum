@@ -2,7 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <unordered_map>
-#include "input/interfaces/event_handler.hpp"
+#include "input/ievent_handler.hpp"
 
 class EventObserverKey;
 class EventObserver;

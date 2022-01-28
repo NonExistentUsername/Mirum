@@ -1,6 +1,6 @@
 #include "controllers/main_controller.hpp"
-#include "input/interfaces/input_component.hpp"
-#include "input/interfaces/event_handler.hpp"
+#include "input/iinput_component.hpp"
+#include "input/ievent_handler.hpp"
 #include "event_handling/event_handler.hpp"
 #include "app.hpp"
 

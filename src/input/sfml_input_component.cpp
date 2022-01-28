@@ -1,6 +1,6 @@
 #include "input/sfml_input_component.hpp"
 #include "render/sfml_renderer.hpp"
-#include "input/interfaces/event_handler.hpp"
+#include "input/ievent_handler.hpp"
 
 SFMLInputComponent::SFMLInputComponent(sf::RenderWindow* window):
     window(window) {}

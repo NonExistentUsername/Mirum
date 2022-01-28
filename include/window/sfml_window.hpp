@@ -1,7 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include "interfaces/window.hpp"
+#include "iwindow.hpp"
 
 class SFMLRenderer;
 class SFMLInputComponent;
