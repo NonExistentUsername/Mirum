@@ -15,6 +15,7 @@ public:
     void game_loop();
 
     void setController(IController* controller);
+    void close();
 
     ~Application();
 };

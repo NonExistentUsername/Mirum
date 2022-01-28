@@ -28,10 +28,14 @@ void Application::game_loop() {
     assert(window != nullptr);
     assert(controller != nullptr);
 
-    while(true) {
+    while(window->is_opened()) {
         update();
         redraw();
     }
+}
+
+void Application::close() {
+    this->window->close();
 }
 
 Application::~Application() {

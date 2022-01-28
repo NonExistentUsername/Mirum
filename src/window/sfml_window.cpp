@@ -2,7 +2,7 @@
 #include "window/sfml_window.hpp"
 
 SFMLWindow::SFMLWindow() {
-    window = new sf::RenderWindow(sf::VideoMode(222, 222, 32), "SFML Pong",
+    window = new sf::RenderWindow(sf::VideoMode(222, 222, 32), "Mirum",
                             sf::Style::Titlebar | sf::Style::Close);
 }
 
