@@ -4,7 +4,7 @@
 #include "input/sfml_input_component.hpp"
 
 SFMLWindow::SFMLWindow() {
-    window = new sf::RenderWindow(sf::VideoMode(600, 800, 32), "Mirum",
+    window = new sf::RenderWindow(sf::VideoMode(1280, 720, 32), "Mirum",
                             sf::Style::Titlebar | sf::Style::Close);
     renderer = new SFMLRenderer(window);
     input = new SFMLInputComponent(window);

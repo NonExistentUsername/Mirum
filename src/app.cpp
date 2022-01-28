@@ -13,7 +13,9 @@ void Application::update() {
 }
 
 void Application::redraw() {
+    window->getRenderer()->clear();
     controller->draw(window->getRenderer());
+    window->getRenderer()->display();
 }
 
 void Application::init(IWindow* window) {

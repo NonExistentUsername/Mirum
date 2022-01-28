@@ -10,3 +10,7 @@ SFMLRenderer::SFMLRenderer(sf::RenderWindow* window) {
 void SFMLRenderer::display() {
     window->display();
 }
+    
+void SFMLRenderer::clear() {
+    window->clear(sf::Color::White);
+}

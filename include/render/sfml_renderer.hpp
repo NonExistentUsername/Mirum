@@ -13,4 +13,5 @@ public:
     SFMLRenderer(sf::RenderWindow* window);
 
     void display() override;
+    void clear() override;
 };
