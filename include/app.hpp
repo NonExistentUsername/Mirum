@@ -1,19 +1,17 @@
 #pragma once
 
-class IRenderer;
+class IWindow;
 class IController;
-class IInputComponent;
 
 class Application {
 private:
-    IInputComponent* input_component = nullptr;
-    IRenderer* renderer = nullptr;
+    IWindow* window = nullptr;
     IController* controller = nullptr;
 
     void update();
     void redraw();
 public:
-    void init(IRenderer* renderer, IInputComponent* input_component);
+    void init(IWindow* window);
     void game_loop();
 
     void setController(IController* controller);

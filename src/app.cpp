@@ -4,18 +4,18 @@
 #include "render/interfaces/renderer.hpp"
 #include "input/interfaces/input_component.hpp"
 #include "controllers/interfaces/controller.hpp"
+#include "window/interfaces/window.hpp"
 
 void Application::update() {
-    controller->update(this->input_component);
+    controller->update(window->getInput());
 }
 
 void Application::redraw() {
-    controller->draw(renderer);
+    controller->draw(window->getRenderer());
 }
 
-void Application::init(IRenderer* renderer, IInputComponent* input_component) {
-    this->renderer = renderer;
-    this->input_component = input_component;
+void Application::init(IWindow* window) {
+    this->window = window;
 }
 
 void Application::setController(IController* controller) {
@@ -25,8 +25,7 @@ void Application::setController(IController* controller) {
 }
 
 void Application::game_loop() {
-    assert(input_component != nullptr);
-    assert(renderer != nullptr);
+    assert(window != nullptr);
     assert(controller != nullptr);
 
     while(true) {
@@ -36,10 +35,8 @@ void Application::game_loop() {
 }
 
 Application::~Application() {
-    if(renderer)
-        delete renderer;
+    if(window)
+        delete window;
     if(controller)
         delete controller;
-    if(input_component)
-        delete input_component;
 }
