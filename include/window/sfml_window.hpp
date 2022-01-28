@@ -17,6 +17,9 @@ public:
 
     IRenderer* getRenderer() override;
     IInputComponent* getInput() override;
-    
+
+    bool is_opened() override;
+    void close() override;
+
     ~SFMLWindow();
 };
