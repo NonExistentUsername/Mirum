@@ -5,9 +5,11 @@
 #include "input/interfaces/input_component.hpp"
 #include "controllers/interfaces/controller.hpp"
 #include "window/interfaces/window.hpp"
+#include "event_handling/event_handler.hpp"
 
 void Application::update() {
-    controller->update(window->getInput());
+    event_handler->update();
+    controller->update();
 }
 
 void Application::redraw() {
@@ -16,6 +18,7 @@ void Application::redraw() {
 
 void Application::init(IWindow* window) {
     this->window = window;
+    this->event_handler = new EventHandler(window->getInput());
 }
 
 void Application::setController(IController* controller) {
@@ -32,6 +35,10 @@ void Application::game_loop() {
         update();
         redraw();
     }
+}
+
+EventHandler* Application::getEventHandler() const  {
+    return this->event_handler;
 }
 
 void Application::close() {

@@ -10,6 +10,6 @@ protected:
 public:
     IController(Application* app): app(app) {}
 
-    virtual void update(IInputComponent* input_component) = 0;
+    virtual void update() = 0;
     virtual void draw(IRenderer* renderer) = 0;
 };

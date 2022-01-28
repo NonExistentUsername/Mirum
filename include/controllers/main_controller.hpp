@@ -6,6 +6,6 @@ class MainController : public IController {
 public:
     MainController(Application* app): IController(app) {}
 
-    void update(IInputComponent* input_component) override;
+    void update() override;
     void draw(IRenderer* renderer) override;
 };

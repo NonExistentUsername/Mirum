@@ -1,12 +1,17 @@
 #include "event_handling/event_handler.hpp"
 #include "event_handling/observers_manager.hpp"
 #include "event_handling/key.hpp"
+#include "input/interfaces/input_component.hpp"
 
-EventHandler::EventHandler(sf::RenderWindow* window):
-    window(window) {}
+EventHandler::EventHandler(IInputComponent* input):
+    input(input) {}
+
+void EventHandler::handle(const sf::Event& event) {
+    //TODO
+}
 
 void EventHandler::update() {
-    //TODO
+    input->handleEvents(this);
 }
 
 EventObserverKey EventHandler::addHandler(sf::Event::EventType type, Observer<const sf::Event&>* observer) {

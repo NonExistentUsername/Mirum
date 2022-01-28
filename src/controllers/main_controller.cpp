@@ -2,16 +2,7 @@
 #include "input/interfaces/input_component.hpp"
 #include "input/interfaces/event_handler.hpp"
 
-class MyEventHandler : public IEventHandler {
-public:
-    void handle(const sf::Event& event) override {
-        //TODO
-    }
-};
-
-void MainController::update(IInputComponent* input_component) {
-    MyEventHandler ev_handler;
-    input_component->handleEvents(&ev_handler);
+void MainController::update() {
     //TODO
 }
 
