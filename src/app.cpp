@@ -52,4 +52,6 @@ Application::~Application() {
         delete window;
     if(controller)
         delete controller;
+    if(event_handler)
+        delete event_handler;
 }

@@ -3,10 +3,10 @@
 #include <SFML/Graphics.hpp>
 #include <unordered_map>
 #include "input/ievent_handler.hpp"
+#include "observers_manager.hpp"
 
 class EventObserverKey;
 class EventObserver;
-class EventObserversManager;
 class IInputComponent;
 template<class T> class Observer;
 
