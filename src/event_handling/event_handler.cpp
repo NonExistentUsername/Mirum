@@ -1,6 +1,4 @@
 #include "event_handling/event_handler.hpp"
-#include "event_handling/observers_manager.hpp"
-#include "event_handling/key.hpp"
 #include "input/iinput_component.hpp"
 
 EventHandler::EventHandler(IInputComponent* input):

@@ -2,7 +2,6 @@
 
 #include <SFML/Graphics.hpp>
 #include "icontroller.hpp"
-#include "event_handling/key.hpp"
 #include "tools/observer.hpp"
 
 class AppCloser : public Observer<const sf::Event&> {
