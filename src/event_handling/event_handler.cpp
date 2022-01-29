@@ -6,7 +6,7 @@
 EventHandler::EventHandler(IInputComponent* input):
     input(input) {}
 
-void EventHandler::handle(const sf::Event& event) {
+void EventHandler::notify(const sf::Event& event) {
     managers[event.type].notify(event);
 }
 
@@ -14,6 +14,8 @@ void EventHandler::update() {
     input->handleEvents(this);
 }
 
-EventObserverKey EventHandler::addHandler(sf::Event::EventType type, Observer<const sf::Event&>* observer) {
-    return managers[type].add(observer);
+// using EventObserversManager = ObserversManager<const sf::Event&>;
+
+ObserverKey<const sf::Event&> EventHandler::addHandler(sf::Event::EventType type, std::unique_ptr<Observer<const sf::Event&>> observer) {
+    return managers[type].add(std::move(observer));
 }

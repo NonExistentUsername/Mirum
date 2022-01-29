@@ -1,6 +1,5 @@
 #include "controllers/main_controller.hpp"
 #include "input/iinput_component.hpp"
-#include "input/ievent_handler.hpp"
 #include "event_handling/event_handler.hpp"
 #include "app.hpp"
 
@@ -15,7 +14,7 @@ void AppCloser::notify(const sf::Event& message) {
 
 MainController::MainController(Application* app): 
     IController(app) {
-    app->getEventHandler()->addHandler(sf::Event::EventType::Closed, new AppCloser(app));
+    app->getEventHandler()->addHandler(sf::Event::EventType::Closed, std::unique_ptr<Observer<const sf::Event&>>(new AppCloser(app)));
 }
 
 void MainController::update() {

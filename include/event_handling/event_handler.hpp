@@ -2,25 +2,28 @@
 
 #include <SFML/Graphics.hpp>
 #include <unordered_map>
-#include "input/ievent_handler.hpp"
-#include "observers_manager.hpp"
+#include "tools/observer.hpp"
 
-class EventObserverKey;
-class EventObserver;
 class IInputComponent;
-template<class T> class Observer;
 
-class EventHandler : public IEventHandler {
+class EventHandler : public Observer<const sf::Event&> {
 private:
+    using _message_type = const sf::Event&;
+    using _event_observers_manager = ObserversManager<_message_type>;
+    using _event_observer_key = ObserverKey<_message_type>;
+
+    using _unique_observer_ptr = std::unique_ptr<Observer<_message_type>>;
+    using _event_type = sf::Event::EventType;
+
     IInputComponent* input = nullptr;
 
-    std::map<sf::Event::EventType, EventObserversManager> managers;
+    std::unordered_map<_event_type, _event_observers_manager> managers;
 protected:
-    void handle(const sf::Event& event) override;
+    void notify(_message_type event) override;
 public:
     EventHandler(IInputComponent* input);
 
     void update();
 
-    EventObserverKey addHandler(sf::Event::EventType type, Observer<const sf::Event&>* observer);
+    _event_observer_key addHandler(_event_type type, _unique_observer_ptr observer);
 };
