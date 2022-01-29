@@ -7,17 +7,22 @@
 
 class AppCloser : public Observer<const sf::Event&> {
 private:
-    Application* app;
+    using _waek_app_ptr = Application*;
+
+    _waek_app_ptr app;
 public:
-    AppCloser(Application* app);
+    AppCloser(_waek_app_ptr app);
 
     void notify(const sf::Event& message) override;
 };
 
 class MainController : public IController {
+private:
+    using _waek_app_ptr = Application*;
+    using _waek_renderer_ptr = IRenderer*;
 public:
-    MainController(Application* app);
+    MainController(_waek_app_ptr app);
 
     void update() override;
-    void draw(IRenderer* renderer) override;
+    void draw(_waek_renderer_ptr renderer) override;
 };
