@@ -1,5 +1,7 @@
 #pragma once
 
-class ITexture {
-    
+#include "render/irender_component.hpp"
+
+class ITexture : public IRenderComponent {
+
 };
