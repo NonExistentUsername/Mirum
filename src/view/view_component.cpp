@@ -1,4 +1,4 @@
-#include "view/icomponent_leaf.hpp"
+#include "view/view_component.hpp"
 
 ViewComponent::ViewComponent() {}
 ViewComponent::ViewComponent(Rect<long double> canvas):
