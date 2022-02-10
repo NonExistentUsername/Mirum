@@ -4,6 +4,7 @@
 
 template<class T>
 class Vec {
+public:
     T x, y;
 
     Vec() {}
