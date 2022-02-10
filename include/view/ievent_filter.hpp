@@ -2,7 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "view_messages.hpp"
-#include "math/rectangle.hpp"
+#include "math/rect.hpp"
 
 class IEventFilter {
 public:

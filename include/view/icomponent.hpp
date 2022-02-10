@@ -3,7 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include <memory>
 #include "tools/observer.hpp"
-#include "math/rectangle.hpp"
+#include "math/rect.hpp"
 
 class IRenderer;
 
