@@ -24,7 +24,7 @@ void Application::init(IWindow* window) {
 }
 
 void Application::setController(IController* controller) {
-    if(controller)
+    if(this->controller)
         delete controller;
     this->controller = controller;
 }
