@@ -23,4 +23,5 @@ public:
     void notify(const sf::Event& message) override;
 
     ObserverKey<VMESSAGE> add(_unique_observer_ptr observer);
+    virtual ~ViewComponent();
 };

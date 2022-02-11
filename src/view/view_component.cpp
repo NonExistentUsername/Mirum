@@ -21,3 +21,5 @@ void ViewComponent::notify_observers(VMESSAGE message) {
 ObserverKey<VMESSAGE> ViewComponent::add(_unique_observer_ptr observer) {
     return manager.add(std::move(observer));
 }
+
+ViewComponent::~ViewComponent() {}

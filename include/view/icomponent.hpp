@@ -20,4 +20,5 @@ public:
     virtual void addComponent(std::unique_ptr<IViewComponent> component);
     
     virtual void notify(const sf::Event& message) = 0;
+    virtual ~IViewComponent();
 };
