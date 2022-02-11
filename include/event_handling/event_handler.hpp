@@ -18,6 +18,7 @@ private:
     IInputComponent* input = nullptr;
 
     std::unordered_map<_event_type, _event_observers_manager> managers;
+    _event_observers_manager manager_for_all_events;
 protected:
     void notify(_message_type event) override;
 public:
@@ -26,4 +27,5 @@ public:
     void update();
 
     _event_observer_key addHandler(_event_type type, _unique_observer_ptr observer);
+    _event_observer_key addHandler(_unique_observer_ptr observer);
 };
