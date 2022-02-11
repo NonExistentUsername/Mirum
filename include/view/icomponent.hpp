@@ -7,7 +7,7 @@
 
 class IRenderer;
 
-class IViewComponent : public Observer<const sf::Event&> {
+class IViewComponent {
 private:
     using _weak_renderer_ptr = IRenderer*;
 protected:
@@ -18,7 +18,6 @@ public:
 
     virtual void draw(_weak_renderer_ptr renderer) = 0;
     virtual void addComponent(std::unique_ptr<IViewComponent> component);
-    
     virtual void notify(const sf::Event& message) = 0;
     virtual ~IViewComponent();
 };
