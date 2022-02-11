@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include "icontroller.hpp"
 #include "tools/observer.hpp"
+#include "view/menu.hpp"
 
 class AppCloser : public Observer<const sf::Event&> {
 private:
@@ -19,6 +20,8 @@ class MainController : public IController {
 private:
     using _waek_app_ptr = Application*;
     using _waek_renderer_ptr = IRenderer*;
+
+    Menu main_menu;
 public:
     MainController(_waek_app_ptr app);
 
