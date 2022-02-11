@@ -63,7 +63,7 @@ private:
     using _unique_observer_ptr = std::unique_ptr<Observer<T>>;
 
     _unique_node_ptr first;
-    _weak_node_ptr last;
+    _weak_node_ptr last = nullptr;
 
     _weak_node_ptr current = nullptr;
     bool current_to_delete = false;
@@ -94,7 +94,11 @@ public:
         if(last == nullptr)
             create_head(std::move(observer));
         else {
-            last->next.reset(new ObserverNode<T>(std::move(observer)));
+            last->next.reset(
+                new ObserverNode<T>(
+                    std::move(observer)
+                    )
+                );
             last->next->previous = last;
             last = last->next.get();
         }
