@@ -12,12 +12,9 @@ private:
     using _weak_renderer_ptr = IRenderer*;
 protected:
     IViewComponent();
-    IViewComponent(Rect<long double> canvas);
 public:
-    Rect<long double> canvas;
-
-    virtual void draw(_weak_renderer_ptr renderer) = 0;
+    virtual void draw(_weak_renderer_ptr renderer);
     virtual void addComponent(std::unique_ptr<IViewComponent> component);
-    virtual void notify(const sf::Event& message) = 0;
+    virtual void notify(const sf::Event& message);
     virtual ~IViewComponent();
 };
