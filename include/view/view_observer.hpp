@@ -1,6 +1,6 @@
 #pragma once
 
-#include "icomponent.hpp"
+#include "iview_component.hpp"
 #include "event_handling/event_handler.hpp"
 #include "tools/observer.hpp"
 

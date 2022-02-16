@@ -1,7 +1,7 @@
 #pragma once
 
 #include <vector>
-#include "icomponent.hpp"
+#include "iview_component.hpp"
 
 class Menu : public IViewComponent {
 private:

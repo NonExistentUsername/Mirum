@@ -1,4 +1,4 @@
-#include "view/icomponent.hpp"
+#include "view/iview_component.hpp"
 #include <stdexcept>
 
 IViewComponent::IViewComponent() {}
