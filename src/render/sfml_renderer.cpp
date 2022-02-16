@@ -7,6 +7,10 @@ SFMLRenderer::SFMLRenderer(sf::RenderWindow* window) {
     this->window = window;
 }
 
+void SFMLRenderer::drawTexture(_weak_texture texture) {
+    //TODO
+}
+
 void SFMLRenderer::display() {
     window->display();
 }
