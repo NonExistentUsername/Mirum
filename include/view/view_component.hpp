@@ -12,15 +12,13 @@ private:
     using _weak_controller_ptr = IEventFilter*;
 
     ObserversManager<VMESSAGE> manager;
-    _weak_controller_ptr filter;
-
-    void notify_observers(VMESSAGE message);
 protected:
     ViewComponent(_weak_controller_ptr filter);
     ViewComponent(_weak_controller_ptr filter, Rect<long double> canvas);
+    
+    void notify_observers(VMESSAGE message);
 public:
     void draw(_weak_renderer_ptr renderer) override;
-    void notify(const sf::Event& message) override;
 
     ObserverKey<VMESSAGE> add(_unique_observer_ptr observer);
     virtual ~ViewComponent();
