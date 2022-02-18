@@ -1,7 +1,6 @@
 #pragma once
 
-class IRenderer;
-
+#include "irenderer.hpp"
 class IRenderComponent {
 private:
     using _weak_renderer_ptr = IRenderer*;
