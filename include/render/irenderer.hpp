@@ -1,12 +1,10 @@
 #pragma once
 
-#include "textures/texture.hpp"
+#include <SFML/Graphics.hpp>
 
 class IRenderer {
-protected:
-    using _weak_texture = Texture*;
 public:
-    virtual void drawTexture(_weak_texture texture) = 0;
+    virtual void draw_sprite(sf::Sprite& sprite) = 0;
 
     virtual void display() = 0;
     virtual void clear() = 0;
